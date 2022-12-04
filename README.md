@@ -1,14 +1,15 @@
 ## Step
 - JWT login (x)
 - User (x)
-- GO logging
+- GO logging (x)
 - Product
+- Microservices
 - Cart
 - Wishlist
 - Payment (API Integration)
 - oAuth login
 - Dependency Injection
-- Microservices
+
 
 ## Feature
 - Usual Brand Commerce
@@ -34,3 +35,4 @@
 - Gorm
 - Go JWT
 
+# go-coba-jwt
