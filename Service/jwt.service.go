@@ -12,6 +12,8 @@ type JwtService interface {
 	ValidateToken(token string, ctx *gin.Context) (*jwt.Token, error)
 }
 
+// TODO implement logging here
+
 type jwtServiceImpl struct {
 	secretKey string
 }

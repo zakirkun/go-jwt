@@ -11,6 +11,8 @@ type Response struct {
 type Obj struct {
 }
 
+// TODO implement logging here
+
 func BuildResponse(message string, data interface{}) Response {
 	res := Response{
 		Message: message,

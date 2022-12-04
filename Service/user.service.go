@@ -17,6 +17,8 @@ type UserService interface {
 	FindByEmail(email string) (domain.User, error)
 }
 
+// TODO implement logging here
+
 type userServicImpl struct {
 	userRepo repo.UserRepo
 }

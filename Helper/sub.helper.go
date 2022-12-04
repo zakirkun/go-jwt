@@ -5,6 +5,8 @@ import (
 	"net/http"
 )
 
+// TODO implement logging here
+
 func GetSub(ctx *gin.Context) uint {
 	anySub, isExist := ctx.Get("sub")
 	if !isExist {

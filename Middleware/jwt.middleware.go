@@ -9,6 +9,8 @@ import (
 	"net/http"
 )
 
+// TODO implement logging here
+
 func AuthorizeJWT(jwtService service.JwtService) gin.HandlerFunc {
 	return func(c *gin.Context) {
 		tokenCookie, _ := c.Cookie("acces_token")

@@ -7,6 +7,7 @@ import (
 func LoadEnv() {
 	errEnv := godotenv.Load()
 	if errEnv != nil {
-		panic("Failed to load env file. Make sure .env file is exists!")
+		L.Panic("Failed load env var")
 	}
+	L.Info("Load env avr")
 }

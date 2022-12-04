@@ -11,18 +11,17 @@ import (
 	"os"
 )
 
-var (
-	db             *gorm.DB                  = NewDB()
-	secretKey      string                    = os.Getenv("SECRET_KEY")
-	jwtService     service.JwtService        = service.NewJwtServiceImpl(secretKey)
-	userRepo       repo.UserRepo             = repo.NewUserRepoImpl(db)
-	authService    service.AuthService       = service.NewAuthServiceImpl(userRepo)
-	userService    service.UserService       = service.NewUserServicImpl(userRepo)
-	authController controller.AuthController = controller.NewAuthControllerImpl(authService, userService, jwtService)
-	userController controller.UserController = controller.NewUserControllerImpl(userService)
-)
+func NewRouter(r *gin.Engine, db *gorm.DB) {
+	var (
+		secretKey      string                    = os.Getenv("SECRET_KEY")
+		jwtService     service.JwtService        = service.NewJwtServiceImpl(secretKey)
+		userRepo       repo.UserRepo             = repo.NewUserRepoImpl(db)
+		authService    service.AuthService       = service.NewAuthServiceImpl(userRepo)
+		userService    service.UserService       = service.NewUserServicImpl(userRepo)
+		authController controller.AuthController = controller.NewAuthControllerImpl(authService, userService, jwtService)
+		userController controller.UserController = controller.NewUserControllerImpl(userService)
+	)
 
-func NewRouter(r *gin.Engine) {
 	api := r.Group("/api")
 	{
 		auth := api.Group("/auth")

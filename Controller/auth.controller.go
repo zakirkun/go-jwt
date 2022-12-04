@@ -13,6 +13,8 @@ type AuthController interface {
 	Login(ctx *gin.Context)
 }
 
+// TODO implement logging here
+
 type authControllerImpl struct {
 	authService service.AuthService
 	userService service.UserService

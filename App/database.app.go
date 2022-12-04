@@ -1,7 +1,6 @@
 package app
 
 import (
-	helper "github.com/vandenbill/brand-commerce/Helper"
 	domain "github.com/vandenbill/brand-commerce/Model/Domain"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
@@ -10,14 +9,23 @@ import (
 
 func NewDB() *gorm.DB {
 	LoadEnv()
+
 	dsn := os.Getenv("DB_URL")
+	L.Info("Load DB_URL from env var")
 	db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
-	helper.PanicIfError(err)
+	if err != nil {
+		L.Panic(err)
+	}
+	L.Info("Load connection to DB")
+
 	DBAutoMigrate(db)
 	return db
 }
 
 func DBAutoMigrate(db *gorm.DB) {
 	err := db.AutoMigrate(&domain.User{})
-	helper.PanicIfError(err)
+	if err != nil {
+		L.Panic(err)
+	}
+	L.Info("Migrate model to DB")
 }

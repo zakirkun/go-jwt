@@ -5,6 +5,8 @@ import (
 	"log"
 )
 
+// TODO implement logging here
+
 func ComparePassword(hashedPwd string, password []byte) bool {
 	byteHash := []byte(hashedPwd)
 	err := bcrypt.CompareHashAndPassword(byteHash, password)

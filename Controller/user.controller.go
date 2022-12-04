@@ -15,6 +15,8 @@ type UserController interface {
 	FindByID(ctx *gin.Context)
 }
 
+// TODO implement logging here
+
 type userControllerImpl struct {
 	userService service.UserService
 }

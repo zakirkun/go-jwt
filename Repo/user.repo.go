@@ -5,6 +5,8 @@ import (
 	"gorm.io/gorm"
 )
 
+// TODO implement logging here
+
 type UserRepo interface {
 	Save(user domain.User) (domain.User, error)
 	Update(user domain.User) (domain.User, error)

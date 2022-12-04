@@ -7,6 +7,8 @@ import (
 	repo "github.com/vandenbill/brand-commerce/Repo"
 )
 
+// TODO implement logging here
+
 type AuthService interface {
 	VerifyCredential(loginDto web.LoginDto) error
 }
